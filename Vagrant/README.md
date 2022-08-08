@@ -1,6 +1,7 @@
+<a  href="#vagrant" class="anchor" name="start"></a>
 # Начало работы с Vagrant
-- Начало
-  - Где взять VirtualBox
+- [Начало](#1)
+  - [Где взять VirtualBox](#1-1)
   - Установка Vagrant
   - Ваше первое виртуальное окружение Vagrant
 - Преимущества от использования Vagrant
@@ -25,3 +26,19 @@
 - Halting - обычное завершение работы
 - Destroing - завершение работы с очисткой всех файлов бокса
 - Быстрая пересборка
+- [Использование команд](#15)
+
+<a  href="#1" class="anchor"></a>
+## Начало
+**Vagrant** это ...
+
+<a  href="#1-1" class="anchor"></a>
+### Где взять VirtualBox
+...
+
+**[Страница загрузки VirtualBox](http://www.virtualbox.org/wiki/Downloads)**.
+
+[оглавление](#vagrant)
+
+<a  href="#15" class="anchor"></a>
+## Использование команд
