@@ -36,7 +36,7 @@
 ### Где взять VirtualBox
 ...
 
-[вернуться в оглавление](#vagrant) | [TIL](/README.md)
+[вернуться к меню ](#vagrant) | [оглавление TIL](/README.md)
 
 <a id="14"></a>
 ## Использование команд
@@ -60,4 +60,4 @@ vagrant destroy -f
 <a  href="#15" class="anchor"></a>
 ## Использование команд
 
-[вернуться в оглавление](#vagrant)
+[вернуться к меню ](#vagrant) | [оглавление TIL](/README.md)
