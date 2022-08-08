@@ -55,7 +55,7 @@ vagrant destroy -f
 
 `vagrant resume` Как уже сказано выше, эта команда пробуждает машину из сна.
 
-[оглавление](#vagrant)
+[вернуться к меню ](#vagrant) | [оглавление TIL](/README.md)
 
 <a  href="#15" class="anchor"></a>
 ## Использование команд
