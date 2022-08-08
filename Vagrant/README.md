@@ -38,7 +38,7 @@
 ### Где взять VirtualBox
 ...
 
-[вернуться к меню ](#vagrant) | [оглавление TIL](/README.md)
+[вернуться к меню ](#vagrant) | [оглавление TIL](/README.md#start)
 
 <a id="14"></a>
 ## Использование команд
@@ -57,9 +57,9 @@ vagrant destroy -f
 
 `vagrant resume` Как уже сказано выше, эта команда пробуждает машину из сна.
 
-[вернуться к меню ](#vagrant) | [оглавление TIL](/README.md)
+[вернуться к меню ](#vagrant) | [оглавление TIL](/README.md#start)
 
 <a  href="#15" class="anchor"></a>
 ## Использование команд
 
-[вернуться к меню ](#vagrant) | [оглавление TIL](/README.md)
+[вернуться к меню ](#vagrant) | [оглавление TIL](/README.md#start)
