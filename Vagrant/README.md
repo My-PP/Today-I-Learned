@@ -1,4 +1,4 @@
-[оглавление TIL](/README.md)
+[Оглавление TIL](/README.md#start)
 
 <a id="vagrant"></a>
 # Начало работы с Vagrant
