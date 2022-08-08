@@ -1,6 +1,6 @@
 <a id="start"></a>
 
-# TIL: Today I Learned<br>Сегодня я узнал вот что #
+# TIL: Today I Learned<br>Сегодня я узнал вот что... #
 
 `TIL: Today I Learned` - идеальное рабочее пространство для осознанного самообразования.
 
