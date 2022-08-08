@@ -1,7 +1,7 @@
-<a  href="#vagrant" class="anchor" name="start"></a>
+<a  href="#начало-работы-с-vagrant" class="anchor" name="start"></a>
 # Начало работы с Vagrant
-- [Начало](#1)
-  - [Где взять VirtualBox](#1-1)
+- [Начало](#начало)
+  - [Где взять VirtualBox](#где-взять-virtualbox)
   - Установка Vagrant
   - Ваше первое виртуальное окружение Vagrant
 - Преимущества от использования Vagrant
@@ -38,7 +38,7 @@
 
 **[Страница загрузки VirtualBox](http://www.virtualbox.org/wiki/Downloads)**.
 
-[оглавление](#vagrant)
+[оглавление](#начало-работы-с-vagrant)
 
 <a  href="#15" class="anchor"></a>
 ## Использование команд
