@@ -26,7 +26,7 @@
 
 Как только вы перейдете на страницу настроек BIOS, вам необходимо включить «Виртуализацию» . Каждый ПК имеет свое название технологии виртуализации, поэтому ищите «Intel VT-x», «Intel VT-d» или что-нибудь в этом роде. Перемещайтесь между различными меню, включите виртуализацию и затем сохраните изменения, нажав клавишу F10
 
-![](/img/hyper-v-bios.jfif)
+![](/img/Hyper-V/hyper-v-bios.jfif)
 
 [вернуться к меню](#hyper-v) | [оглавление TIL](/README.md#start)
 
@@ -59,7 +59,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 ```
 
-![Hyper-V](/img/hyper-v-powershell.png)
+![Hyper-V](/img/Hyper-V/hyper-v-powershell.png)
 [вернуться к меню](#hyper-v) | [оглавление TIL](/README.md#start)
 
 <a id="2-3"></a>
