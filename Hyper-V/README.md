@@ -60,6 +60,7 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 ```
 
 ![Hyper-V](/img/Hyper-V/hyper-v-powershell.png)
+
 [вернуться к меню](#hyper-v) | [оглавление TIL](/README.md#start)
 
 <a id="2-3"></a>
