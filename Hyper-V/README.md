@@ -15,9 +15,9 @@
 - ЦП должен поддерживать расширения режима мониторинга виртуальной машины (VT-c на процессорах Intel).
 - Не менее 4 ГБ оперативной памяти.
 
-Роль Hyper-V невозможно установить в Windows 10 Домашняя.
+Роль Hyper-V **невозможно** установить в Windows 10 Домашняя.
 
-[вернуться к меню ](#hyper-v) | [оглавление TIL](/README.md#start)
+[вернуться к меню](#hyper-v) | [оглавление TIL](/README.md#start)
 
 <a id="2"></a>
 ## Включение аппаратной виртуализации ##
@@ -26,13 +26,15 @@
 
 Как только вы перейдете на страницу настроек BIOS, вам необходимо включить «Виртуализацию» . Каждый ПК имеет свое название технологии виртуализации, поэтому ищите «Intel VT-x», «Intel VT-d» или что-нибудь в этом роде. Перемещайтесь между различными меню, включите виртуализацию и затем сохраните изменения, нажав клавишу F10
 
-[вернуться к меню ](#hyper-v) | [оглавление TIL](/README.md#start)
+![](/img/hyper-v-bios.jfif)
+
+[вернуться к меню](#hyper-v) | [оглавление TIL](/README.md#start)
 
 <a id="2-1"></a>
 ## Включение Hyper-V с помощью PowerShell ##
 
 1. Откройте консоль PowerShell от имени администратора.
-2. Выполните следующую команду: PowerShellКопировать
+2. Выполните следующую команду:
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -41,7 +43,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 
 После завершения установки выполните перезагрузку.
 
-[вернуться к меню ](#hyper-v) | [оглавление TIL](/README.md#start)
+[вернуться к меню](#hyper-v) | [оглавление TIL](/README.md#start)
 
 <a id="2-2"></a>
 ## Включение Hyper-V с помощью CMD и DISM ##
@@ -56,15 +58,21 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```powershell
 DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 ```
-[вернуться к меню ](#hyper-v) | [оглавление TIL](/README.md#start)
+
+![Hyper-V](/img/hyper-v-powershell.png)
+[вернуться к меню](#hyper-v) | [оглавление TIL](/README.md#start)
 
 <a id="2-3"></a>
 ## Включение роли Hyper-V через раздел "Параметры" ##
 
 После включения аппаратной виртуализации в BIOS и перезагрузки компьютера вам нужно включить Hyper-V. Для этого воспользуйтесь комбинацией клавиш Windows + R и в открывшемся окне введите команду **optionalfeatures.exe** либо с помощью поиска в меню Пуск введите название **Включение или отключение компонентов Windows**. Или щелкните правой кнопкой мыши кнопку Windows и выберите пункт "Приложения и компоненты".
 
+![Hyper-V](/img/Hyper-V/hyper-v-optionalfeatures-01.png)
+
 Прокрутите вниз и найдите опцию Hyper-V. Теперь установите все флажки в опции Hyper-V и нажмите кнопку ОК. После установки необходимых компонентов согласитесь на перезагрузку компьютера.
+
+![Hyper-V](/img/Hyper-V/hyper-v-optionalfeatures-02.png)
 
 После завершения установки вам будет предложено перезапустить компьютер
 
-[вернуться к меню ](#hyper-v) | [оглавление TIL](/README.md#start)
+[вернуться к меню](#hyper-v) | [оглавление TIL](/README.md#start)
