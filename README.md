@@ -14,6 +14,8 @@
 
 VirtualBox (Oracle VM VirtualBox) — программный продукт виртуализации для операционных систем Windows, Linux, FreeBSD, macOS, Solaris/OpenSolaris, ReactOS, DOS и других.
 
+- [Перенос виртуальной машины из Hyper-V в VirtualBox](/Virtualbox/README.md#999)
+
 ### Hyper-V ###
 
 Microsoft Hyper-V – это одна из технологий виртуализации серверов, позволяющая запускать на одном физическом сервере множество виртуальных ОС. 
