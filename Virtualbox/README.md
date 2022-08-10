@@ -21,3 +21,5 @@ vboxmanage.exe clonemedium disk filename.vhdx filename.vdi −−format vdi
 ```powershell
 C:\Program Files\Oracle\VirtualBox>VBoxManage.exe clonemedium disk "C:\VMs\Windows2012R2.vhdx" C:\VMs\Windows2012R2.vdi --format vdi
 ```
+
+[вернуться к меню](#virtualbox) | [оглавление TIL](/README.md#start)
