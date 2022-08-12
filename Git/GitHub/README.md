@@ -41,7 +41,7 @@
 
 Теперь у вас есть профиль на Github и репозиторий для работы.
 
-[Вернуться к меню](/Git/GitHub/README.md#github) | [Оглавление Git](/Git/README.md#git) | [Оглавление TIL](/README.md#start)
+[вернуться к меню](/Git/GitHub/README.md#github) | [оглавление Git](/Git/README.md#git) | [оглавление TIL](/README.md#start)
 
 ## Устанавливаем SSH-ключи
 
@@ -99,4 +99,4 @@ Git установлен, профиль на GitHub создан. Остало
 
 Если всё сделано верно, в списке появится новый ключ. Теперь можно начать работу с проектом.
 
-[Вернуться к меню](/Git/GitHub/README.md#github) | [Оглавление Git](/Git/README.md#git) | [Оглавление TIL](/README.md#start)
+[вернуться к меню](/Git/GitHub/README.md#github) | [оглавление Git](/Git/README.md#git) | [оглавление TIL](/README.md#start)
