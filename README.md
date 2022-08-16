@@ -69,4 +69,4 @@ Vagrant использует виртуальную машину для созд
 
 - [Начало работы с Vagrant](/Vagrant/README.md)
 
-# [А вы это знали?](#til-today-i-learned)
+# [А вы это знали?](#til-today-i-learnedсегодня-я-узнал-вот-что)
