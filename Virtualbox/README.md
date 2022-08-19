@@ -24,7 +24,7 @@ vboxmanage.exe clonemedium disk filename.vhdx filename.vdi −−format vdi
 Для примера возьмем виртуальный дискWindows2012R2.vhdx и сконвертируем его в формат VDI:
 
 ```powershell
-C:\Program Files\Oracle\VirtualBox>VBoxManage.exe clonemedium disk "C:\VMs\Windows2012R2.vhdx" C:\VMs\Windows2012R2.vdi --format vdi
+"C:\Program Files\Oracle\VirtualBox>VBoxManage.exe" clonemedium disk "C:\VMs\Windows2012R2.vhdx" "C:\VMs\Windows2012R2.vdi" --format vdi
 ```
 
 📖 [Начало работы с Virtualbox](#оглавление) | [Today-I-Learned](/README.md#til-today-i-learnedсегодня-я-узнал-вот-что)
