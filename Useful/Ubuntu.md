@@ -13,6 +13,7 @@
 - Выключение сервера из командной строки
 - Как найти публичный IP адрес вашего сервера
 - Увеличение системного раздела
+- Как настроить статический IP-адрес
 
 Как изменить порт Apache
 ------------------------
@@ -167,7 +168,7 @@ Device       Start      End  Sectors  Size Type
 /dev/sda3  1054720 52426751 51372032 24.5G Linux filesystem
 ```
 
-### Ubuntu 20 увеличение системного раздела
+### Увеличение системного раздела
 
 Внимание! Перед тем, как приступить к работам по расширению системного раздела, обязательно сделайте резервную копию данных!
 
@@ -280,3 +281,122 @@ tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup
 tmpfs           394M   84K  394M   1% /run/user/126
 tmpfs           394M   72K  394M   1% /run/user/1000
 ```
+
+Как настроить статический IP-адрес
+----------------------------------
+
+**Настройка сети в Ubuntu Server 20.04 LTS** осуществляется через утилиту **Netplan**.
+
+**NetPlan** — это инструмент для управления настройками сети, представленный в Ubuntu начиная с версии 17.10 и выше.
+
+Этот инструмент заменяет файл статических интерфейсов `/etc/network/interfaces`, который ранее использовался для настройки сетевых интерфейсов в Ubuntu. Теперь нужно использовать `/etc/netplan/*.yaml` для ваших изменений в настройках сетевых интерфейсов.
+
+### Определение сетевых интерфейсов
+
+Определите все доступные сетевые интерфейсы используя команду `ip` или `lshw`:
+
+```
+sudo ip a// Илиsudo lshw -class network
+```
+
+![GitHub](/img/Useful/ubuntu.static-ip.1.png)
+
+У меня уже настроен IP адрес: 192.169.0.150. Я изменю его.
+
+### Настройки локальной сети
+
+Отредактируйте файл конфигурации **netplan** который находится в директории `/etc/netplan/`:
+
+```
+sudo vim /etc/netplan/00-installer-config.yaml
+```
+
+![GitHub](/img/Useful/ubuntu.static-ip.2.png)
+
+Здесь придётся прописать всё ручками, если у вас ещё нет доступа по SSH. У меня этот файл уже редактировался, мне необходимо изменить только IP адрес.
+
+**Основные настройки**:
+
+- **addresses** — ip адрес который будет назначен вашей сетевой карте.
+- **gateway4** — ip адрес вашего роутера.
+- **nameservers** — DNS сервера. Первый - наш роутер.
+- **search** — домен в котором будет произведен поиск. Домен можно настроить при помощи DNS сервера
+
+**Мои настройки:**
+
+```
+network: ethernets:  enp0s3:   addresses:    - 192.168.0.105/24   gateway4: 192.168.0.1   nameservers:    addresses: [192.168.0.1, 8.8.4.4]   optional: true version: 2 renderer: networkd
+```
+
+> ВАЖНО!Обратите внимание на пробелы! Именно пробелы должны быть, а не табуляция. Если у вас после сохранения файла не появилась ошибка типа: Error while loading /etc/netplan/00-installer-config.yaml, то файл отредактирован правильно с точки зрения его синтаксиса.
+> 
+
+После редактирования файла: `Esc` -> `Shift + :` -> `wq!` -> `Enter`.
+
+### Применение конфигурации
+
+Использование **netplan** для генерации необходимой конфигурации:
+
+```
+sudo netplan generate
+```
+
+Для подробного вывода информации при генерации, используйте опцию `--debug`:
+
+```
+sudo netplan --debug generate
+```
+
+Применение конфигурации **netplan**:
+
+```
+sudo netplan apply
+```
+
+Для подробного вывода информации при применении, используйте опцию `--debug`:
+
+```
+sudo netplan --debug apply
+```
+
+![GitHub](/img/Useful/ubuntu.static-ip.3.png)
+
+Далее рекомендуется перезапустить интерфейсы или перезагрузить сервер:
+
+```
+sudo reboot
+```
+
+### Подключение по SSH
+
+В **Windows PowerShell**:
+
+```
+ssh user@ip_addres
+```
+
+![GitHub](/img/Useful/ubuntu.static-ip.4.png)
+
+Используем **Putty**. Указываем IP адрес и задаем имя сессии, жмём **Open**:
+
+![GitHub](/img/Useful/ubuntu.static-ip.5.png)
+
+При первом подключении к серверу мы увидим сообщение. Жмём **ДА**.
+
+![GitHub](/img/Useful/ubuntu.static-ip.6.png)
+
+Вводим имя пользователя и пароль. Если всё прошло успешно, увидим:
+
+![GitHub](/img/Useful/ubuntu.static-ip.7.png)
+
+На этом настройка статического IP-адреса в Ubuntu Server 20.04 LTS закончена.
+
+### Пример конфигурации
+
+Пример, который показывает большинство доступных функций:
+
+```
+network: version: 2 # if specified, can only realistically have that value, as networkd cannot # render wifi/3G. renderer: NetworkManager ethernets:  # opaque ID for physical interfaces, only referred to by other stanzas  wlp3s0:    match:     macaddress: 00:11:22:33:44:55    wakeonlan: true    dhcp4: true    addresses:     - 192.168.14.2/24     - 192.168.14.3/24     - "2001:1::1/64"    gateway4: 192.168.14.1    gateway6: "2001:1::2"    nameservers:     search: [foo.local, bar.local]     addresses: [8.8.8.8]    routes:     - to: 0.0.0.0/0      via: 11.0.0.1      table: 70      on-link: true      metric: 3    routing-policy:     - to: 10.0.0.0/8      from: 192.168.14.2/24      table: 70      priority: 100     - to: 20.0.0.0/8      from: 192.168.14.3/24      table: 70      priority: 50    # only networkd can render on-link routes and routing policies    renderer: networkd   lom:     match:      driver: ixgbe     # you are responsible for setting tight enough match rules     # that only match one device if you use set-name     set-name: lom1     dhcp6: true   switchports:     # all cards on second PCI bus unconfigured by     # themselves, will be added to br0 below     # note: globbing is not supported by NetworkManager     match:      name: enp2*     mtu: 1280 wifis:   all-wlans:     # useful on a system where you know there is     # only ever going to be one device     match: {}     access-points:      "Joe's home":       # mode defaults to "infrastructure" (client)       password: "s3kr1t"   # this creates an AP on wlp1s0 using hostapd   # no match rules, thus the ID is the interface name   wlp1s0:    access-points:     "guest":      mode: ap      # no WPA config implies default of open bridges:  # the key name is the name for virtual (created) interfaces  # no match: and set-name: allowed  br0:   # IDs of the components; switchports expands into multiple interfaces   interfaces: [wlp1s0, switchports]   dhcp4: true
+```
+
+Подробнее об использовании Netplan [здесь](https://netplan.io/examples/).
